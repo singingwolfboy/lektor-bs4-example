@@ -1,0 +1,5 @@
+[project]
+name = lektor-bs4-example
+
+[packages]
+lektor-webpack-support = 0.1

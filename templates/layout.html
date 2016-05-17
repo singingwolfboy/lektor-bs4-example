@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Required meta tags always come first -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <!-- Generated CSS, including Bootstrap -->
+  <link rel="stylesheet" href="{{ '/static/gen/styles.css'|asseturl }}">
+  <!-- Other things -->
+  <title>{% block title %}Welcome{% endblock %} — lektor-bs4-example</title>
+</head>
+<body>
+  <div class="container">
+  <header>
+    <h1>Lektor BS4 Example</h1>
+    <nav>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link {% if this._path == '/' %}active{% endif
+          %}"
+             href="{{ '/'|url }}">Welcome</a>
+        </li>
+        {% for href, title in [
+          ['/blog', 'Blog'],
+          ['/projects', 'Projects'],
+          ['/about', 'About']
+        ] %}
+          <li class="nav-item">
+            <a class="nav-link {% if this.is_child_of(href) %}active{% endif
+            %}"
+               href="{{ href|url }}">{{ title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </header>
+  <div class="page">
+    {% block body %}{% endblock %}
+  </div>
+  <footer>
+    &copy; Copyright 2016 by Lektor BS4 Example.
+  </footer>
+  </div>
+  <script type=text/javascript src="{{ '/static/gen/app.js'|asseturl }}" charset="utf-8"></script>
+</body>
+</html>
